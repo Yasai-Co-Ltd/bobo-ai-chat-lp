@@ -425,35 +425,56 @@ section {
     color: #003D7C;
 }
 
-.diagnosis-rebuttal {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.diagnosis-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     margin-bottom: 50px;
 }
 
-.rebuttal-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
+.diagnosis-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.diagnosis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.diagnosis-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.diagnosis-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.diagnosis-card-content {
     padding: 25px 30px;
-    background-color: #FFF8F0;
-    border-left: 4px solid #FF9800;
-    border-radius: 0 10px 10px 0;
 }
 
-.rebuttal-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
+.diagnosis-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #003D7C;
+    margin-bottom: 15px;
 }
 
-.rebuttal-text {
-    font-size: 1.1rem;
-    color: #333;
+.diagnosis-card-text {
+    font-size: 1rem;
+    color: #555;
     line-height: 1.8;
 }
 
-.rebuttal-text strong {
+.diagnosis-card-text strong {
     color: #C44569;
 }
 
@@ -463,6 +484,7 @@ section {
     padding: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 25px;
     color: white;
 }
@@ -733,10 +755,11 @@ section {
     margin-bottom: 20px;
 }
 
-.campaign-text {
+.campaign-section .campaign-text {
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #003D7C;
 }
 
 .campaign-date {
@@ -896,12 +919,7 @@ section {
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .header-nav {
-        gap: 10px;
-    }
-
-    .btn-header {
-        padding: 8px 15px;
-        font-size: 0.8rem;
+        display: none;
     }
 
     .hero-content {
@@ -955,6 +973,23 @@ section {
     }
 
     .testimonial-quote {
+        font-size: 1.1rem;
+    }
+
+    .diagnosis-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .diagnosis-card-image {
+        height: 180px;
+    }
+
+    .diagnosis-card-content {
+        padding: 20px;
+    }
+
+    .diagnosis-card-title {
         font-size: 1.1rem;
     }
 
