@@ -143,7 +143,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px 50px;
-    border-radius: 30px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -215,7 +215,6 @@ body {
 
 .campaign-notice {
     background-color: #FFF3E0;
-    border-left: 4px solid #FF9800;
     padding: 20px;
     border-radius: 8px;
     margin-top: 30px;
@@ -274,8 +273,8 @@ body {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 18px 40px;
-    border-radius: 30px;
+    padding: 18px 60px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -348,40 +347,49 @@ section {
     background-color: #F8F9FA;
 }
 
-.testimonial-box {
-    max-width: 800px;
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.testimonial-box {
     background-color: white;
-    padding: 50px 40px;
+    padding: 40px 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
 }
 
 .testimonial-logo {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.tv-logo {
-    display: inline-block;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: white;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 15px 40px;
-    border-radius: 10px;
+.testimonial-logo-img {
+    max-width: 180px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.testimonial-company {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #003D7C;
+    margin-bottom: 15px;
 }
 
 .testimonial-quote {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #003D7C;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     line-height: 1.6;
 }
 
 .testimonial-comment {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #666;
     line-height: 1.8;
 }
@@ -935,6 +943,19 @@ section {
 
     .section-title-center {
         font-size: 1.6rem;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .testimonial-box {
+        padding: 30px 20px;
+    }
+
+    .testimonial-quote {
+        font-size: 1.1rem;
     }
 
     .user-voice {
