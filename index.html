@@ -345,21 +345,63 @@
             });
         });
 
+        // URLバリデーション関数
+        function isValidWebsiteUrl(urlString) {
+            // 空文字チェック
+            if (!urlString || urlString.trim() === '') {
+                return { valid: false, message: 'WebサイトのURLを入力してください' };
+            }
+
+            // URL形式チェック
+            let url;
+            try {
+                url = new URL(urlString);
+            } catch (e) {
+                return { valid: false, message: '有効なURLを入力してください（例: https://example.com）' };
+            }
+
+            // プロトコルチェック（http/httpsのみ許可）
+            if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+                return { valid: false, message: 'URLはhttp://またはhttps://で始まる必要があります' };
+            }
+
+            // ホスト名の存在チェック
+            if (!url.hostname || url.hostname.trim() === '') {
+                return { valid: false, message: '有効なドメイン名を含むURLを入力してください' };
+            }
+
+            // ドメイン形式の基本チェック（最低限ドットを含む、またはlocalhost）
+            if (url.hostname !== 'localhost' && !url.hostname.includes('.')) {
+                return { valid: false, message: '有効なドメイン名を入力してください（例: example.com）' };
+            }
+
+            // ホスト名に使用できない文字のチェック
+            const hostnamePattern = /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?)*$/;
+            if (url.hostname !== 'localhost' && !hostnamePattern.test(url.hostname)) {
+                return { valid: false, message: '有効なドメイン名を入力してください' };
+            }
+
+            // TLD（トップレベルドメイン）の存在チェック
+            if (url.hostname !== 'localhost') {
+                const parts = url.hostname.split('.');
+                const tld = parts[parts.length - 1];
+                if (tld.length < 2 || !/^[a-zA-Z]+$/.test(tld)) {
+                    return { valid: false, message: '有効なドメイン（.com, .jp など）を含むURLを入力してください' };
+                }
+            }
+
+            return { valid: true, message: '' };
+        }
+
         // 診断開始
         function startDiagnosis() {
             const urlInput = document.getElementById('website-url');
             const resultDiv = document.getElementById('diagnosis-result');
-            
-            if (!urlInput.value) {
-                alert('WebサイトのURLを入力してください');
-                return;
-            }
 
-            // URLの簡易バリデーション
-            try {
-                new URL(urlInput.value);
-            } catch (e) {
-                alert('有効なURLを入力してください（例: https://example.com）');
+            // URLバリデーション
+            const validation = isValidWebsiteUrl(urlInput.value);
+            if (!validation.valid) {
+                alert(validation.message);
                 return;
             }
 
