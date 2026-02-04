@@ -363,14 +363,9 @@
                 return;
             }
 
-            // 診断結果エリアを表示
-            resultDiv.style.display = 'block';
-            
-            // 実際のチャットボットページへ遷移（ここではデモ用にアラート表示）
-            setTimeout(() => {
-                alert('診断が完了しました！\n\n実際の実装では、ここでDifyのチャットボットページに遷移します。\n\nURL: ' + urlInput.value);
-                resultDiv.style.display = 'none';
-            }, 3000);
+            // チャットボットページへ遷移
+            const chatUrl = `http://localhost:3009/chat/e160d716-2263-4189-981e-5354e765c417?message=${encodeURIComponent(urlInput.value)}`;
+            window.open(chatUrl, '_blank');
         }
     </script>
 </body>
