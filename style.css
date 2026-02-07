@@ -45,6 +45,11 @@ body {
     color: #003D7C;
 }
 
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
 .logo-icon {
     font-size: 1.8rem;
 }
@@ -183,7 +188,7 @@ body {
 }
 
 .title-main {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -291,6 +296,8 @@ body {
     font-weight: 700;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
 }
 
 .btn-cta-primary {
@@ -373,17 +380,29 @@ section {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
+    min-width: 0;
 }
 
 .testimonial-logo {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .testimonial-logo-img {
-    max-width: 180px;
-    max-height: 80px;
-    object-fit: contain;
+    /* max-width: 180px;
+    max-height: 80px; */
+    /* object-fit: contain; */
+    width: auto;
+    height: 80px;
+    object-fit: cover;
 }
+.testimonial-interview-img {
+    width: 100%;
+}
+
 
 .testimonial-company {
     font-size: 1.1rem;
@@ -934,6 +953,15 @@ section {
         display: none;
     }
 
+    .header-content {
+        justify-content: center;
+    }
+
+    /* ファーストビュー */
+    .hero {
+        padding:50px 0 60px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -941,14 +969,21 @@ section {
 
     .hero-title {
         font-size: 2rem;
+        text-align: center;
     }
 
     .title-main {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+    }
+
+    .title-emphasis {
+        font-size: 2.4rem;
+        text-align: center;
     }
 
     .hero-catchphrase {
         font-size: 1rem;
+        text-align: center;
     }
 
     .hero-label {
@@ -956,7 +991,11 @@ section {
     }
 
     .hero-subcopy {
-        font-size: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .hero .campaign-text {
+        font-size: 0.8rem;
     }
 
     .btn-hero-cta {
@@ -964,7 +1003,7 @@ section {
     }
 
     .btn-hero-cta .btn-text {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .section-title {
@@ -988,6 +1027,11 @@ section {
         font-size: 1.1rem;
     }
 
+    .testimonial-logo-img {
+        height: auto;
+        width: 100%;
+    }
+
     .diagnosis-cards {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1004,7 +1048,7 @@ section {
     .diagnosis-card-title {
         font-size: 1.1rem;
     }
-
+ 
     .user-voice {
         flex-direction: column;
         text-align: center;
