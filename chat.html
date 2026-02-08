@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI診断中 | AIチャット営業オススメくん</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .chat-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            flex-shrink: 0;
+        }
+
+        .chat-header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #003D7C;
+        }
+
+        .chat-header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: #003D7C;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: "Noto Sans JP", sans-serif;
+        }
+
+        .btn-back:hover {
+            background: #00264d;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 61, 124, 0.3);
+        }
+
+        .chat-iframe-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .chat-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="chat-header">
+        <div class="chat-header-logo">
+            <img src="images/logo.png" alt="AIチャット営業オススメくん">
+        </div>
+        <a href="index.html" class="btn-back">&#8592; トップに戻る</a>
+    </header>
+    <div class="chat-iframe-container">
+        <iframe id="chat-frame" src="" allow="microphone; camera"></iframe>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const message = params.get('message');
+        if (message) {
+            const chatUrl = 'https://yabot.yas-ai.io/chat/45a7bbbe-4223-4ca2-b59f-7580d47bd8dc?message=' + encodeURIComponent(message);
+            document.getElementById('chat-frame').src = chatUrl;
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
