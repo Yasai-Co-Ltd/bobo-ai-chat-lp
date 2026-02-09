@@ -922,6 +922,10 @@ section {
 }
 
 .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
     margin-bottom: 30px;
 }
 
@@ -936,6 +940,30 @@ section {
     opacity: 0.9;
 }
 
+.footer-company-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer-company-table {
+    font-size: 0.85rem;
+    border-collapse: collapse;
+}
+
+.footer-company-table th {
+    text-align: left;
+    padding: 4px 16px 4px 0;
+    white-space: nowrap;
+    opacity: 0.8;
+    font-weight: 500;
+    vertical-align: top;
+}
+
+.footer-company-table td {
+    padding: 4px 0;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
@@ -947,8 +975,90 @@ section {
     opacity: 0.8;
 }
 
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* プライバシーポリシーページ */
+.privacy-section {
+    padding: 80px 0 60px;
+}
+
+.privacy-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #003D7C;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.privacy-intro {
+    text-align: center;
+    color: #555;
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+
+.privacy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-block {
+    margin-bottom: 40px;
+}
+
+.privacy-block h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #003D7C;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8f0fe;
+}
+
+.privacy-block p {
+    color: #444;
+    line-height: 1.9;
+}
+
+.privacy-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.privacy-block ul li {
+    color: #444;
+    line-height: 1.9;
+    padding-left: 20px;
+    position: relative;
+}
+
+.privacy-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    background-color: #003D7C;
+    border-radius: 50%;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
     .header-nav {
         display: none;
     }
