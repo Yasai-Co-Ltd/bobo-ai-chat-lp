@@ -969,6 +969,12 @@ section {
     margin-bottom: 10px;
 }
 
+.footer-logo-img {
+    height: 80px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
 .footer-desc {
     font-size: 0.95rem;
     opacity: 0.9;
@@ -1091,6 +1097,13 @@ section {
     .footer-content {
         flex-direction: column;
         gap: 30px;
+    }
+
+    .footer-logo-img {
+        height: 80px;
+        margin: auto;
+        margin-bottom: 40px;
+        display: block;
     }
 
     .header-nav {
