@@ -337,11 +337,8 @@
             <p class="diagnosis-subtitle">あなたのWebサイトのURLを入力してください</p>
             <div class="diagnosis-form">
                 <input type="url" id="website-url" placeholder="https://example.com" class="url-input" oninput="toggleDiagnosisBtn()">
-                <label class="privacy-agree">
-                    <input type="checkbox" id="privacy-check" onchange="toggleDiagnosisBtn()">
-                    <span><a href="privacy.html" target="_blank" class="privacy-agree-link">プライバシーポリシー</a>に同意する</span>
-                </label>
                 <button onclick="startDiagnosis()" id="btn-diagnosis" class="btn-diagnosis" disabled>診断を開始する</button>
+                <p class="privacy-consent-text"><a href="privacy.html" target="_blank" class="privacy-agree-link">プライバシーポリシー</a>に同意した上で送信する</p>
             </div>
             <div id="diagnosis-result" class="diagnosis-result" style="display: none;">
                 <div class="loading">
@@ -394,11 +391,10 @@
             });
         });
 
-        // URL入力 & プライバシーポリシー同意の両方でボタン制御
+        // URL入力でボタン制御
         function toggleDiagnosisBtn() {
             const hasUrl = document.getElementById('website-url').value.trim() !== '';
-            const checked = document.getElementById('privacy-check').checked;
-            document.getElementById('btn-diagnosis').disabled = !(hasUrl && checked);
+            document.getElementById('btn-diagnosis').disabled = !hasUrl;
         }
 
         // URLバリデーション関数
