@@ -260,6 +260,62 @@ body {
 }
 
 /* CTAセクション */
+.diagnosis-points-section {
+    background-color: #F0F5FF;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.diagnosis-points-heading {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #003D7C;
+    margin-bottom: 40px;
+}
+
+.diagnosis-points-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.diagnosis-point-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.diagnosis-point-check {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 12px;
+    background-color: #003D7C;
+    border-radius: 50%;
+    position: relative;
+}
+
+.diagnosis-point-check::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.diagnosis-point-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.6;
+}
+
 .cta-section {
     background-color: #003D7C;
     color: white;
@@ -858,6 +914,17 @@ section {
     box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
 }
 
+.url-input-highlight {
+    border-color: #FF6B9D;
+    box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.3);
+    animation: pulse-border 0.6s ease 2;
+}
+
+@keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(255, 107, 157, 0.1); }
+}
+
 .btn-diagnosis {
     padding: 18px 40px;
     background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
@@ -871,23 +938,28 @@ section {
     font-family: "Noto Sans JP", sans-serif;
 }
 
-.btn-diagnosis:disabled {
-    background: linear-gradient(135deg, #ccc 0%, #aaa 100%);
-    cursor: not-allowed;
+.btn-diagnosis.is-disabled {
+    background: linear-gradient(135deg, #FFB3CC 0%, #D98AA0 100%);
+    cursor: pointer;
     transform: none;
     box-shadow: none;
 }
 
-.btn-diagnosis:hover:not(:disabled) {
+.btn-diagnosis:hover:not(.is-disabled) {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+.btn-diagnosis.is-disabled:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
 }
 
 .privacy-consent-text {
     font-size: 0.85rem;
     color: #555;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 0px;
 }
 
 .privacy-agree-link {
@@ -1085,6 +1157,16 @@ section {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+    .diagnosis-points-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        gap: 16px;
+    }
+
+    .diagnosis-points-heading {
+        font-size: 1.4rem;
+    }
+
     .footer-content {
         flex-direction: column;
         gap: 30px;
@@ -1161,6 +1243,10 @@ section {
 
     .btn-hero-cta .btn-text {
         font-size: 0.9rem;
+    }
+
+    .privacy-consent-text {
+        font-size: 0.65rem;
     }
 
     .section-title {
