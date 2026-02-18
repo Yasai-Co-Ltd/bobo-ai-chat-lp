@@ -179,6 +179,13 @@ body {
     width: 100%;
 }
 
+.hero-cta-note {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 8px;
+    text-align: center;
+}
+
 .hero-title {
     font-size: 2rem;
     font-weight: 900;
@@ -259,7 +266,206 @@ body {
     /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); */
 }
 
-/* CTAセクション */
+/* 数字で見る課題 */
+.stats-section {
+    background-color: #003D7C;
+    color: white;
+    padding: 60px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #FF6B9D;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.stat-unit {
+    font-size: 1.8rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+}
+
+.stats-messages {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.stats-message {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding-left: 20px;
+}
+
+.stats-message::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 2px;
+    background-color: #FF6B9D;
+}
+
+/* 全体最適の概念 */
+.flow-section {
+    background-color: #fff;
+    padding: 70px 0;
+    text-align: center;
+}
+
+.flow-heading {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #003D7C;
+    margin-bottom: 40px;
+}
+
+.flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.flow-step {
+    background: #F0F5FF;
+    border: 2px solid #003D7C;
+    border-radius: 15px;
+    padding: 36px 28px;
+    flex: 1;
+    text-align: center;
+}
+
+.flow-step-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 16px;
+    display: block;
+}
+
+.flow-step-number {
+    width: 32px;
+    height: 32px;
+    background-color: #003D7C;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 900;
+    margin: 0 auto 10px;
+}
+
+.flow-step-title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #003D7C;
+    margin-bottom: 4px;
+}
+
+.flow-step-sub {
+    font-size: 0.95rem;
+    color: #777;
+}
+
+.flow-arrow {
+    width: 30px;
+    height: 2px;
+    background-color: #003D7C;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.flow-arrow::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left: 8px solid #003D7C;
+}
+
+.flow-conclusion {
+    font-size: 1.4rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+.flow-conclusion strong {
+    color: #FF6B9D;
+    font-size: 1.7rem;
+}
+
+/* 最終CTA */
+.final-cta-section {
+    background-color: #F0F5FF;
+    padding: 70px 0;
+    text-align: center;
+}
+
+.final-cta-heading {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #003D7C;
+    margin-bottom: 30px;
+}
+
+.btn-final-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 20px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+    color: white;
+}
+
+.btn-final-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+.btn-final-cta .btn-text {
+    font-size: 1.2rem;
+}
+
+/* 診断でわかること */
 .diagnosis-points-section {
     background-color: #F0F5FF;
     padding: 60px 0;
@@ -1157,6 +1363,46 @@ section {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        gap: 16px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stats-messages {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .flow-heading {
+        font-size: 1.4rem;
+    }
+
+    .flow-diagram {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .flow-arrow {
+        width: 2px;
+        height: 24px;
+    }
+
+    .flow-arrow::after {
+        right: 50%;
+        top: auto;
+        bottom: 0;
+        transform: translateX(50%);
+        border: 6px solid transparent;
+        border-top: 8px solid #003D7C;
+        border-left: 6px solid transparent;
+    }
+
     .diagnosis-points-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
